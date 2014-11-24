@@ -107,6 +107,15 @@ public class UriReport extends AbstractReport implements  Serializable, ModelObj
     return result;
   }
   
+  public long get99Line() {
+	    long result = 0;
+	    Collections.sort(httpSampleList);
+	    if (httpSampleList.size() > 0) {
+	      result = httpSampleList.get((int) (httpSampleList.size() * .99)).getDuration();
+	    }
+	    return result;
+	  }
+  
   public String getHttpCode() {
     String result = "";
     

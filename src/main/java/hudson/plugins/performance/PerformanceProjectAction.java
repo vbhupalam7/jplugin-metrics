@@ -392,7 +392,7 @@ public final class PerformanceProjectAction implements Action {
                   // we set duration as 0 for failed tests
                   dataSetBuilderAverage.add(0, uriReport.getUri(), label);
               } else {
-                  dataSetBuilderAverage.add(uriReport.getAverage(), uriReport.getUri(), label);
+                  dataSetBuilderAverage.add(uriReport.get90Line(), uriReport.getUri(), label);
               }
           }
 
@@ -443,10 +443,10 @@ public final class PerformanceProjectAction implements Action {
         }
         dataSetBuilderAverage.add(performanceReport.getMedian(),
             Messages.ProjectAction_Median(), label);
-        dataSetBuilderAverage.add(performanceReport.getAverage(),
-            Messages.ProjectAction_Average(), label);
         dataSetBuilderAverage.add(performanceReport.get90Line(),
             Messages.ProjectAction_Line90(), label);
+        dataSetBuilderAverage.add(performanceReport.get99Line(),
+                Messages.ProjectAction_Line99(), label);
       }
       nbBuildsToAnalyze--;
       continue;
@@ -796,24 +796,18 @@ public final class PerformanceProjectAction implements Action {
           nbBuildsToAnalyze--;
           continue;
         }
-        dataSet.add(Math.round(report.getAverage()),
-            Messages.ProjectAction_Average(), label);
+
         dataSet.add(Math.round(report.getMedian()),
             Messages.ProjectAction_Median(), label);
         dataSet.add(Math.round(report.get90Line()),
             Messages.ProjectAction_Line90(), label);
-        dataSet.add(Math.round(report.getMin()),
-            Messages.ProjectAction_Minimum(), label);
+        dataSet.add(Math.round(report.get99Line()),
+            Messages.ProjectAction_Line99(), label);
         dataSet.add(Math.round(report.getMax()),
             Messages.ProjectAction_Maximum(), label);
         dataSet.add(Math.round(report.errorPercent()),
             Messages.ProjectAction_PercentageOfErrors(), label);
-        dataSet.add(Math.round(report.countErrors()),
-            Messages.ProjectAction_Errors(), label);
-        dataSet.add(report.getTotalTrafficInKb(),
-            Messages.ProjectAction_TotalTrafficKB(), label);
-        dataSet.add(report.getAverageSizeInKb(),
-            Messages.ProjectAction_AverageKB(), label);
+
       }
       nbBuildsToAnalyze--;
     }

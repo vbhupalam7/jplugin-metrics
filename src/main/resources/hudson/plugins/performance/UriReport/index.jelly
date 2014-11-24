@@ -29,8 +29,9 @@
           <j:when test="${it.getPerformanceReport().ifSummarizerParserUsed(it.getPerformanceReport().getReportFileName())}">
             <th>${%URI}</th>
             <th>${%Samples}</th>
+            <th>${%Line99} (ms)</th>
             <th>${%Time}</th>
-            <th>${% Avg Response Time} (ms)</th>
+            <th></th>
             <j:forEach var="c" items="${it.httpSampleList}">
                 <tr>
                 <td class="left">${c.uri}</td>

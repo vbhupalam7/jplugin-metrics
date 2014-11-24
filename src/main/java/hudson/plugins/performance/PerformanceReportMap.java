@@ -202,8 +202,8 @@ public class PerformanceReportMap implements ModelObject {
     for (AbstractBuild<?, ?> currentBuild : buildReports.keySet()) {
       NumberOnlyBuildLabel label = new NumberOnlyBuildLabel(currentBuild);
       PerformanceReport report = buildReports.get(currentBuild).get(parameter);
-      dataSetBuilderAverage.add(report.getAverage(),
-          Messages.ProjectAction_Average(), label);
+      dataSetBuilderAverage.add(report.get90Line(),
+          Messages.ProjectAction_Line90(), label);
     }
     ChartUtil.generateGraph(request, response, PerformanceProjectAction
         .createRespondingTimeChart(dataSetBuilderAverage.build()), 400, 200);

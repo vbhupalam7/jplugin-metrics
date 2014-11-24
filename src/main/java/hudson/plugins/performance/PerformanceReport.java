@@ -123,6 +123,20 @@ public class PerformanceReport extends AbstractReport implements Serializable,
     }
     return result;
   }
+  
+  public long get99Line() {
+	    long result = 0;
+	    int size = size();
+	    if (size != 0) {
+	      List<HttpSample> allSamples = new ArrayList<HttpSample>();
+	      for (UriReport currentReport : uriReportMap.values()) {
+	        allSamples.addAll(currentReport.getHttpSampleList());
+	      }
+	      Collections.sort(allSamples);
+	      result = allSamples.get((int) (allSamples.size() * .99)).getDuration();
+	    }
+	    return result;
+	  }
 
   public long getMedian() {
     long result = 0;
