@@ -60,13 +60,13 @@ public abstract class AbstractReport {
   abstract public int size();
   
   abstract public String getHttpCode();
-
+/*
   abstract public long getAverageDiff();
   
   abstract public long getMedianDiff();
   
   abstract public double getErrorPercentDiff();
-  
+*/  
   abstract public String getLastBuildHttpCodeIfChanged();
   
   abstract public int getSizeDiff();

@@ -215,7 +215,7 @@ public class UriReport extends AbstractReport implements  Serializable, ModelObj
   public void addLastBuildUriReport( UriReport lastBuildUriReport ) {
       this.lastBuildUriReport = lastBuildUriReport;
   }
-  
+
   public long getAverageDiff() {
       if ( lastBuildUriReport == null ) {
           return 0;
@@ -236,7 +236,7 @@ public class UriReport extends AbstractReport implements  Serializable, ModelObj
       }
       return errorPercent() - lastBuildUriReport.errorPercent();
   }
-  
+ 
   public String getLastBuildHttpCodeIfChanged() {
       if ( lastBuildUriReport == null ) {
           return "";

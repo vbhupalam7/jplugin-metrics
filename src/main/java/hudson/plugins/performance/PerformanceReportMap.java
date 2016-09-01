@@ -241,7 +241,7 @@ public class PerformanceReportMap implements ModelObject {
       // Now we should have the data necessary to generate the graphs!
       for (String key : report.getUriReportMap().keySet()) {
         Long methodAvg = report.getUriReportMap().get(key).getAverage();
-        dataSetBuilderSummarizer.add(methodAvg, label, key);
+      //  dataSetBuilderSummarizer.add(methodAvg, label, key);
       }
       ;
     }

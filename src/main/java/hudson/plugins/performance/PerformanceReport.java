@@ -263,7 +263,7 @@ public class PerformanceReport extends AbstractReport implements Serializable,
     }
     return errorPercent() - lastBuildReport.errorPercent();
   }
-
+  
   public String getLastBuildHttpCodeIfChanged() {
     return "";
   }
